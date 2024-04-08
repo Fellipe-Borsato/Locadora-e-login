@@ -4,7 +4,8 @@ class HelloWorld
     static void Main()
     {
 
-        int escolhaF;
+        int escolhaF, contador = 1;
+        
         bool FilmeMais = true;
         string desejo, mais;
 
@@ -31,7 +32,7 @@ class HelloWorld
                 Console.WriteLine("Qual filme?");
                 escolhaF = int.Parse(Console.ReadLine());
 
-                if (escolhaF < 0 || escolhaF > 8)
+                if (escolhaF < 0 || escolhaF > 11)
                 {
                     Console.WriteLine("O número não é correspondente com um filme!");
                 }
@@ -39,6 +40,7 @@ class HelloWorld
                 {
                     Console.WriteLine("O filme escolhido foi: " + primeiroF(escolhaF));
                     while(FilmeMais == true)
+                      
                     { 
                     Console.WriteLine("O senhor deseja mais alguma coisa?");
                     mais = Console.ReadLine();
@@ -49,18 +51,23 @@ class HelloWorld
                                 Console.WriteLine("Digite o filme que o senhor quer:");
                                 escolhaF = int.Parse(Console.ReadLine());
                                 Console.WriteLine("O filme escolhido foi: " + primeiroF(escolhaF));
+                                contador++;
+                                
                                 break;
                             case "não":
-                                Console.Write("Ok senhor, o valor do(s) filme(s) foi de : 1 real");
+                            double preco = contador*6.50;
+                                Console.Write($"Ok senhor, o valor do(s) filme(s) foi de :{preco}");
                                 FilmeMais = false;
                                 break;
                         }   
+                      
                     }
                 }
                 break;
-            default:
+                default:
                 Console.WriteLine("Ok senhor(a), tenha um ótimo dia!");
                 break;
+               
         }
 
     }
@@ -70,17 +77,17 @@ class HelloWorld
         {
             string[] filme =
               { "Não existe este filme, tente novamente com outro digito",
-      "Gente grande",
-      "Gente grande 2",
-      "Vingadores",
-      "Vingadores 2",
-      "Vingadores Guerra Infinita",
-      "Vingadores Ultimato",
-      "Homem Aranha",
-      "Homem Aranha 2",
-      "Homem Aranha 3",
-      "O bicho vai pegar",
-      "O bicho vai pegar 2"
+                "Gente grande",
+                "Gente grande 2",
+                "Vingadores",
+                "Vingadores 2",
+                "Vingadores Guerra Infinita",
+                "Vingadores Ultimato",
+                "Homem Aranha",
+                "Homem Aranha 2",
+                "Homem Aranha 3",
+                "O bicho vai pegar",
+                "O bicho vai pegar 2"
             };
 
             return filme[escolha];
